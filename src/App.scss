@@ -1,0 +1,164 @@
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-size: 16px;
+	font-family: "Roboto", Arial, Tahoma, sans-serif;
+}
+
+body {
+	background-color: #f7f9fc;
+	//background-image: url('./img/bg.jpg');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+}
+p {
+	margin: 0;
+}
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+button {
+	all: unset;
+}
+
+.text-right {
+	text-align: right;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.btn {
+	display: inline-block;
+	padding: 5px 30px;
+	margin-top: 15px;
+	transition: 0.3s;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: #262f3d;
+	border: 1px solid #262f3d;
+	color: #fff;
+}
+
+input.error,
+textarea.error {
+	border-color: #ce0909;
+}
+
+.error-message {
+	color: #ce0909;
+	font-size: 14px;
+}
+
+.btn:disabled {
+	cursor: not-allowed;
+}
+
+.container {
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+}
+
+.content {
+	padding-bottom: 30px;
+}
+
+.header {
+	position: fixed;
+	width: 100%;
+	background-color: #282c34;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 1vmin);
+	color: white;
+	margin-bottom: 40px;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+}
+
+.content {
+	padding-top: 100px;
+}
+
+textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	resize: vertical;
+	border-radius: 0;
+	outline: none;
+	transition: 0.3s;
+	font-size: 16px;
+
+	&:focus {
+		border: 1px solid #262f3d;
+	}
+}
+
+.messages-block {
+	overflow-y: auto;
+
+	h2 {
+		margin-bottom: 30px;
+	}
+}
+
+.message {
+	display: block;
+	color: inherit;
+	padding: 15px;
+	font-size: 14px;
+	background: #fff;
+	border-radius: 5px;
+	margin-bottom: 30px;
+	box-shadow: 3px 3px 5px rgba(34, 39, 51, 0.1);
+
+	&__user-name {
+		font-size: 14px;
+		margin-bottom: 10px;
+		font-weight: 700;
+		color: #aaaaaa;
+		line-height: 1.2;
+	}
+}
+
+.write-message-block {
+	h2 {
+		margin-bottom: 30px;
+	}
+}
+
+/* Write message From */
+.write-message-form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	.btn {
+		margin-left: auto;
+	}
+}
