@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useData } from "../DataContext";
 
 const Form = (props) => {
-	// Получаем данные из контекста
+	/** Получаем данные из контекста */
 	const {
 		messages,
-		setMessages,
 		fieldsInit,
 		fields,
 		setFormData,
+		firebase,
 	} = useData();
 
-	// Form validation
+	/** Валидация формы */
 	const messageTextErrorInit = !!fieldsInit.text
 		? ""
 		: "This is a required field";
@@ -20,10 +20,10 @@ const Form = (props) => {
 		messageTextErrorInit
 	);
 
-	// Переменная состояния валидности формы
+	/** Переменная состояния валидности формы */
 	const [isFormValid, setFormValid] = useState(false);
 
-	// Обработчик события blur инпутов
+	/** Обработчик события blur инпутов */
 	const blurHandler = (e) => {
 		switch (e.target.name) {
 			case "message_text":
@@ -34,7 +34,7 @@ const Form = (props) => {
 		}
 	};
 
-	// При изменении состояний ошибок проверяем форму на валидность
+	/** При изменении состояний ошибок проверяем форму на валидность */
 	useEffect(() => {
 		if (messageTextError) {
 			setFormValid(false);
@@ -44,7 +44,8 @@ const Form = (props) => {
 	}, [messageTextError]);
 
 	/*
-		После оптравки сообщения, форма очищается, но ошибок также нет, как и перед отправкой и форма остается валидна.
+		После оптравки сообщения, форма очищается, но ошибок также нет, 
+		как и перед отправкой и форма остается валидна.
 		При изменении messages обновляем состояние ошибок.
 	*/
 	useEffect(() => {
@@ -85,7 +86,13 @@ const Form = (props) => {
 			fields.id = 1;
 		}
 
-		setMessages([...messages, fields]);
+		/* setMessages([...messages, fields]); */
+
+		let messagesRef = firebase.database().ref('messages');
+
+		messagesRef.push({
+			...fields
+		})
 
 		setFormData({
 			...fields,

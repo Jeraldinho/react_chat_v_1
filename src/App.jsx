@@ -6,16 +6,13 @@ import { useData } from "./DataContext";
 import Message from "./components/Message";
 
 function App() {
-	// Получаем данные из контекста
-	/**
-	 * @param {array} messages - Массив сообщений
-	 */
+	/** Получение данных из контекста */
 	const { messages } = useData();
 
-	// Создаем ref контейнера сообщений
+	/** Создаем ref контейнера сообщений */
 	const messagesCnt = useRef();
 
-	// Скролл вниз контейнера сообщений при изменении стейта сообщений
+	/** Скролл вниз контейнера сообщений при изменении стейта сообщений */
 	useEffect(() => {
 		messagesCnt.current.scrollTop = messagesCnt.current.scrollHeight;
 	}, [messages]);
@@ -31,14 +28,19 @@ function App() {
 				<div className="messages">
 					{!messages.length ? <span className="no-messages">No messages yet...</span> : ''}
 
-					{messages.map((message) => {
-						return (
-							<Message
-								{...message}
-								key={`message_${message.id}`}
-							/>
-						);
-					})}
+					{
+						messages && (
+							messages.map((message) => {
+								return (
+									<Message
+										{...message}
+										key={`message_${message.id}`}
+									/>
+								);
+							})
+						)
+					}
+					
 				</div>
 			</div>
 

@@ -147,10 +147,14 @@ textarea.error {
 /* Messages block */
 .messages-block {
 	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: reverse;
+	-ms-flex-direction: column-reverse;
+	-ms-flex-direction: column-reverse;
 	flex-direction: column-reverse;
 	flex-grow: 1;
 	overflow: auto;
-	min-height: 400px;
+	min-height: 300px;
 	padding: 15px 30px;
 
 	h2 {
