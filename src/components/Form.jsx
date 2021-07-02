@@ -14,7 +14,7 @@ import { useData } from "../DataContext";
  */
 
 const Form = () => {
-	/** 
+	/**
 	 * Получаем данные из контекста
 	 */
 	const {
@@ -58,7 +58,7 @@ const Form = () => {
 	}, [messageTextError]);
 
 	/**
-	 * После оптравки сообщения, форма очищается, но ошибок также нет, 
+	 * После оптравки сообщения, форма очищается, но ошибок также нет,
 	 * как и перед отправкой и форма остается валидна.
 	 * При изменении messages обновляем состояние ошибок.
 	 */
@@ -109,6 +109,8 @@ const Form = () => {
 			...fields
 		})
 
+		// setMessages([...messages, fields]);
+
 		/**
 		 * Очищаем поля формы
 		 */
@@ -116,8 +118,18 @@ const Form = () => {
 			...fields,
 			...fieldsInit,
 		});
-		
+
 		setMessageTextTouched(false);
+	};
+
+	/**
+	 * Отправка сообщения при нажатии Enter если форма валидна
+	 */
+	const onKeyDown = (event) => {
+		if ((event.code === "Enter" || event.code === "NumpadEnter") && isFormValid) {
+			event.preventDefault();
+			handleSubmit(event);
+		}
 	};
 
 	return (
@@ -132,6 +144,7 @@ const Form = () => {
 				value={fields.text}
 				onChange={onChangeMessageText}
 				onBlur={blurHandler}
+				onKeyPress={onKeyDown}
 			></textarea>
 
 			<button

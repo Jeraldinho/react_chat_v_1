@@ -51,7 +51,7 @@ function App() {
 			</div>
 
 			<div className="write-message-block">
-				<div className="title">Enter your messages</div>
+				<div className="title">Write your message <span>(Sending by ENTER)</span></div>
 
 				<Form />
 

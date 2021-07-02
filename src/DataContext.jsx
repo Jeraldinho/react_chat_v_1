@@ -41,6 +41,18 @@ export const DataProvider = ({ children }) => {
 			text:
 				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam est asperiores possimus nobis explicabo ipsum aliquid, blanditiis obcaecati commodi hic, distinctio mollitia iure. Voluptate illum odio repellendus aperiam quis voluptatem.",
 		},
+		{
+			id: 2,
+			author: "Anonymous",
+			text:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam est asperiores possimus nobis explicabo ipsum aliquid, blanditiis obcaecati commodi hic, distinctio mollitia iure. Voluptate illum odio repellendus aperiam quis voluptatem.",
+		},
+		{
+			id: 3,
+			author: "Anonymous",
+			text:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam est asperiores possimus nobis explicabo ipsum aliquid, blanditiis obcaecati commodi hic, distinctio mollitia iure. Voluptate illum odio repellendus aperiam quis voluptatem.",
+		},
 	];
 
 	/** 
@@ -84,6 +96,7 @@ export const DataProvider = ({ children }) => {
 			value={{
 				messagesInit,
 				messages,
+				setMessages,
 				fieldsInit,
 				fields,
 				setFormData,

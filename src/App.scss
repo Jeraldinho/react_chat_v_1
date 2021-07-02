@@ -46,6 +46,10 @@ img {
 	height: auto;
 }
 
+#root {
+	padding: 0 15px;
+}
+
 .btn {
 	display: inline-block;
 	font-weight: 400;
@@ -211,6 +215,34 @@ textarea.error {
 	border-radius: 5px;
 	box-shadow: 3px 3px 5px rgba(34, 39, 51, 0.1);
 
+	&:nth-child(2n) {
+		background: #e4ffdb;
+	}
+
+	&:nth-child(3n) {
+		background: #DEF7FE;
+	}
+
+	&:nth-child(4n) {
+		background: #FFFADD;
+	}
+
+	&:nth-child(5n) {
+		background: #fce2ff;
+	}
+
+	&:nth-child(6n) {
+		background: #E7ECFF;
+	}
+
+	&:nth-child(7n) {
+		background: #FDEED9;
+	}
+
+	&:nth-child(8n) {
+		background: #F6FFF8;
+	}
+
 	&:not(:last-child) {
 		margin-bottom: 30px;
 	}
@@ -243,6 +275,12 @@ textarea.error {
 		font-weight: 700;
 		margin-bottom: 10px;
 		color: #464646;
+
+		span {
+			font-size: 12px;
+			font-weight: normal;
+			color: #9e9c9c;
+		}
 	}
 }
 
