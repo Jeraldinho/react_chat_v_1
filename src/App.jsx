@@ -5,6 +5,12 @@ import Form from "./components/Form";
 import { useData } from "./DataContext";
 import Message from "./components/Message";
 
+/**
+ * Главный компонент App
+ * @component
+ * @property {Array} messages - Массив сообщений
+ */
+
 function App() {
 	/** Получение данных из контекста */
 	const { messages } = useData();

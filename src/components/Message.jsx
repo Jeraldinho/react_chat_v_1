@@ -1,5 +1,13 @@
 import React from "react";
 
+/**
+ * Компонент сообщения
+ * @component
+ * @param {*} props
+ * @param {string} props.author - Автор сообщения
+ * @param {string} props.text - Текст сообщения
+ */
+
 const Message = (props) => {
 	return (
 		<div className="message">
