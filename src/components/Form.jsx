@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useData } from "../DataContext";
+import dateFormat from "dateformat";
 
 /**
  * Компонент формы
@@ -89,8 +90,17 @@ const Form = () => {
 	};
 
 	/**
+	 * Получение даты и времени
+	 * @return 2021-10-23, 06:16:55
+	 */
+	const getDate = () => {
+		const timestamp = firebase.firestore.Timestamp.now().toDate();
+
+		return dateFormat(timestamp, "yyyy-mm-dd, HH:MM:ss")
+	}
+
+	/**
 	 * Обработчик формы - добавление сообщения в state
-	 * @param {Event} e - объект события Event для предотвращения default поведения формы
 	 */
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -102,6 +112,11 @@ const Form = () => {
 		} else {
 			fields.id = 1;
 		}
+
+		/**
+		 * Добавление даты оптравки сообщения
+		 */
+		fields.date = getDate();
 
 		let messagesRef = firebase.database().ref('messages');
 		/** Добавляем новое сообщение */
@@ -134,6 +149,8 @@ const Form = () => {
 
 	return (
 		<form className="write-message-form" onSubmit={handleSubmit}>
+			{/* <input type="text" className="your-name" placeholder="Anonymous" /> */}
+
 			{messageTextTouched && messageTextError && (
 				<div className="error-message">{messageTextError}</div>
 			)}

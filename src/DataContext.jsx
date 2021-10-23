@@ -30,7 +30,7 @@ firebase.initializeApp({
 export const DataProvider = ({ children }) => {
 	/** Создание БД */
 	const firestore = firebase.database();
-
+	
 	/** 
 	 * Исходное состояние массива сообщений
 	 */
@@ -40,18 +40,21 @@ export const DataProvider = ({ children }) => {
 			author: "Anonymous",
 			text:
 				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam est asperiores possimus nobis explicabo ipsum aliquid, blanditiis obcaecati commodi hic, distinctio mollitia iure. Voluptate illum odio repellendus aperiam quis voluptatem.",
+			date: '2021-10-01 18:30:16'
 		},
 		{
 			id: 2,
 			author: "Anonymous",
 			text:
 				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam est asperiores possimus nobis explicabo ipsum aliquid, blanditiis obcaecati commodi hic, distinctio mollitia iure. Voluptate illum odio repellendus aperiam quis voluptatem.",
+			date: '2021-10-01 19:25:44'
 		},
 		{
 			id: 3,
 			author: "Anonymous",
 			text:
 				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam est asperiores possimus nobis explicabo ipsum aliquid, blanditiis obcaecati commodi hic, distinctio mollitia iure. Voluptate illum odio repellendus aperiam quis voluptatem.",
+			date: '2021-10-01 20:48:15'
 		},
 	];
 
@@ -84,6 +87,7 @@ export const DataProvider = ({ children }) => {
 		id: 1,
 		author: "Anonymous",
 		text: "",
+		date: null
 	};
 
 	/** 
