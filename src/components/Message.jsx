@@ -12,6 +12,7 @@ const Message = (props) => {
 	return (
 		<div className="message">
 			<div className="message__user-name">{props.author}</div>
+			{/* <span className="message__user-info">({props.info})</span> */}
 			<span className="message__date">{props.date}</span>
 
 			<p>{props.text}</p>

@@ -255,7 +255,14 @@ textarea.error {
 		line-height: 1.2;
 	}
 
+	&__user-info {
+		display: inline-block;
+		font-size: 11px;
+		margin-right: 10px;
+	}
+
 	&__date {
+		display: inline-block;
 		font-size: 11px;
 		color: #464646;
 	}

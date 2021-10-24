@@ -87,6 +87,7 @@ export const DataProvider = ({ children }) => {
 		id: 1,
 		author: "Anonymous",
 		text: "",
+		//info: "",
 		date: null
 	};
 

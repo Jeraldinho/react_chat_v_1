@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useData } from "../DataContext";
 import dateFormat from "dateformat";
+import {serverTimestamp} from 'firebase/firestore';
 
 /**
  * Компонент формы
@@ -90,14 +91,30 @@ const Form = () => {
 	};
 
 	/**
-	 * Получение даты и времени
+	 * Получение даты и времени по МСК
 	 * @return 2021-10-23, 06:16:55
 	 */
 	const getDate = () => {
-		const timestamp = firebase.firestore.Timestamp.now().toDate();
+		const timestamp = firebase.firestore.Timestamp.now().toDate().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' });
 
-		return dateFormat(timestamp, "yyyy-mm-dd, HH:MM:ss")
+		//return dateFormat(timestamp, "yyyy-mm-dd, HH:MM:ss")
+		return timestamp;
 	}
+
+	/**
+	 * Запрос к API для получения информации о пользователе
+	 * @param {String} url path to API
+	 */
+	/* const getUserInfo = (url) => {
+		let result = fetch(url)
+		.then(response => response.json())
+
+		return result;
+	}
+
+	getUserInfo('https://ipapi.co/json').then(info => {
+		fields.info = `${info.ip}, ${info.country_name}, ${info.city}, ${info.org}`
+	}); */
 
 	/**
 	 * Обработчик формы - добавление сообщения в state
